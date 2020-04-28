@@ -1,4 +1,6 @@
 // Fraction class
+import java.util.*;
+
 public class Fraction
 {
     // instance varibles for numerator and denominator
@@ -12,7 +14,20 @@ public class Fraction
         this.num = num;
         // Illegal Argument Exception of denominator is 0
         this.den = den;
+        try
+        {
+            int n = num / den;
+        }
+        catch (ArithmeticException e)
+        {
+            System.out.println("This fraction is undefined.");
+        }
         // negative goes to numerator or cancels
+        if (this.den < 0)
+        {
+            this.num = num * -1;
+            this.den = den * -1;
+        }
     }
     // one parameter (only numerator)
     public Fraction(int num)
@@ -26,8 +41,5 @@ public class Fraction
     }
 
     // Methods
-    public int getNumerator()
-    {
-
-    }
+    
 }
