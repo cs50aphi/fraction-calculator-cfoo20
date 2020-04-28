@@ -22,6 +22,10 @@ public class Fraction
         {
             System.out.println("This fraction is undefined.");
         }
+        catch (InputMismatchException e)
+        {
+            System.out.println("Expected an integer.");
+        }
         // negative goes to numerator or cancels
         if (this.den < 0)
         {
@@ -41,5 +45,28 @@ public class Fraction
     }
 
     // Methods
-    
+    // get numerator and denomintor
+    public int getNumerator()
+    {
+        return this.num;
+    }
+    public int getDenominator()
+    {
+        return this.den;
+    }
+    // String representation of fraction
+    public String toString()
+    {
+        String numerator = String.valueOf(this.num);
+        String denominator = String.valueOf(this.den);
+        if (this.den == 1)
+        {
+            return numerator;
+        }
+        else
+        {
+            System.out.println(numerator + "/" + denominator);
+            return numerator + "/" + denominator;
+        }
+    }
 }
