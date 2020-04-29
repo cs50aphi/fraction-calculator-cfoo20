@@ -80,5 +80,12 @@ public class Fraction
         Fraction total = new Fraction(newNum, newDen);
         return total;
     }
-    
+    // subtraction
+    public Fraction subtract(Fraction other)
+    {
+        int newNum = (this.num * other.getDenominator()) - (other.getNumerator() * this.den);
+        int newDen = this.den * other.getDenominator();
+        Fraction total = new Fraction(newNum, newDen);
+        return total;
+    }
 }
