@@ -21,11 +21,7 @@ public class Fraction
         }
         catch (ArithmeticException e)
         {
-            System.out.println("This fraction is undefined.");
-        }
-        catch (InputMismatchException e)
-        {
-            System.out.println("Expected an integer.");
+            throw new ArithmeticException("This fraction is undefined.");
         }
         // negative goes to numerator or cancels
         if (this.den < 0)
@@ -84,4 +80,5 @@ public class Fraction
         Fraction total = new Fraction(newNum, newDen);
         return total;
     }
+    
 }
