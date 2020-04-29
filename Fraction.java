@@ -113,6 +113,8 @@ public class Fraction
     public boolean equals(Object other)
     {
         double first = toDouble();
+        // check if other is a Fraction
+        // cast Object to Fraction
         Fraction f2 = (Fraction) other;
         double second = f2.toDouble();
         if (first == second)
@@ -120,6 +122,15 @@ public class Fraction
             return true;
         }
         return false;
+    }
+    // convert fraction to lowest terms
+    public void toLowestTerms()
+    {
+        // find gcd
+        int gcd = gcd(this.num, this.den);
+        // divide numerator and denominator by gcd
+        this.num = this.num / gcd;
+        this.den = this.den / gcd;
     }
     // greatest common denominator
     public static int gcd(int a, int b)
