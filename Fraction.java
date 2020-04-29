@@ -88,4 +88,12 @@ public class Fraction
         Fraction total = new Fraction(newNum, newDen);
         return total;
     }
+    // multiplication
+    public Fraction multiply(Fraction other)
+    {
+        int newNum = this.num * other.getNumerator();
+        int newDen = this.den * other.getDenominator();
+        Fraction product = new Fraction(newNum, newDen);
+        return product;
+    }
 }
