@@ -1,5 +1,6 @@
 // Fraction class
 import java.util.*;
+import java.lang.Integer;
 
 public class Fraction
 {
@@ -46,27 +47,41 @@ public class Fraction
 
     // Methods
     // get numerator and denomintor
-    public int getNumerator()
+    private int getNumerator()
     {
         return this.num;
     }
-    public int getDenominator()
+    private int getDenominator()
     {
         return this.den;
     }
     // String representation of fraction
     public String toString()
     {
-        String numerator = String.valueOf(this.num);
-        String denominator = String.valueOf(this.den);
+        String numerator = Integer.toString(this.num);
+        String denominator = Integer.toString(this.den);
+        // return whole number if denominator is 1
         if (this.den == 1)
         {
             return numerator;
         }
         else
         {
-            System.out.println(numerator + "/" + denominator);
             return numerator + "/" + denominator;
         }
+    }
+    // result
+    private double toDouble()
+    {
+        double quotient = this.num / this.den;
+        return quotient;
+    }
+    // addition
+    public Fraction add(Fraction other)
+    {
+        int newNum = (this.num * other.getDenominator()) + (other.getNumerator() * this.den);
+        int newDen = this.den * other.getDenominator();
+        Fraction total = new Fraction(newNum, newDen);
+        return total;
     }
 }
