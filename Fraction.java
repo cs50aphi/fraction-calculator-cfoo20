@@ -96,4 +96,16 @@ public class Fraction
         Fraction product = new Fraction(newNum, newDen);
         return product;
     }
+    // divison
+    public Fraction divide(Fraction other)
+    {
+        if (other.getNumerator() == 0)
+        {
+            throw new IllegalArgumentException("Dividing by 0 is undefined");
+        }
+        int newNum = this.num * other.getDenominator();
+        int newDen = this.den * other.getNumerator();
+        Fraction quotient = new Fraction(newNum, newDen);
+        return quotient;
+    }
 }
