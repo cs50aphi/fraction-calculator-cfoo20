@@ -1,6 +1,7 @@
 // Fraction class
 import java.util.*;
 import java.lang.Integer;
+import java.lang.Math;
 
 public class Fraction
 {
@@ -119,5 +120,24 @@ public class Fraction
             return true;
         }
         return false;
+    }
+    // greatest common denominator
+    public static int gcd(int a, int b)
+    {
+        // make integers positive
+        a = Math.abs(a);
+        b = Math.abs(b);
+        // while a and b are not zero
+        while (a != 0 && b != 0)
+        {
+            // find the remainder of a divided by b
+            int remainder = a % b;
+            // set a to b
+            a = b;
+            // set b to the remainder you found
+            b = remainder;
+        }
+        // return a
+        return a;
     }
 }
