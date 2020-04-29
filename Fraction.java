@@ -114,14 +114,18 @@ public class Fraction
     {
         double first = toDouble();
         // check if other is a Fraction
-        // cast Object to Fraction
-        Fraction f2 = (Fraction) other;
-        double second = f2.toDouble();
-        if (first == second)
+        if (other instanceof Fraction)
         {
-            return true;
+            // cast Object to Fraction
+            Fraction f2 = (Fraction) other;
+            double second = f2.toDouble();
+            if (first == second)
+            {
+                return true;
+            }
+            return false;
         }
-        return false;
+        else return false;
     }
     // convert fraction to lowest terms
     public void toLowestTerms()
