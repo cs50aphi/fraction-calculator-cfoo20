@@ -20,6 +20,6 @@ public class FractionDriver
         System.out.println(f1 + " - " + f2 + " is " + f1.subtract(f2));
         System.out.println(f1 + " * " + f2 + " is " + f1.multiply(f2));
         System.out.println(f1 + " / " + f2 + " is " + f1.divide(f2));
-        // System.out.println(f1 + " is the same as " + f2 + ": " + f1.equals(f2));
+        System.out.println(f1 + " is the same as " + f2 + ": " + f1.equals(f2));
     }
 }

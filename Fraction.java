@@ -69,7 +69,7 @@ public class Fraction
     // result
     private double toDouble()
     {
-        double quotient = this.num / this.den;
+        double quotient = (double) this.num / (double) this.den;
         return quotient;
     }
     // addition
@@ -107,5 +107,17 @@ public class Fraction
         int newDen = this.den * other.getNumerator();
         Fraction quotient = new Fraction(newNum, newDen);
         return quotient;
+    }
+    // check if the two fractions are equal
+    public boolean equals(Object other)
+    {
+        double first = toDouble();
+        Fraction f2 = (Fraction) other;
+        double second = f2.toDouble();
+        if (first == second)
+        {
+            return true;
+        }
+        return false;
     }
 }
