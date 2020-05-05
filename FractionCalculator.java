@@ -28,15 +28,21 @@ public class FractionCalculator
             {
                 case "+":
                     System.out.println(f1 + " + " + f2 + " is " + f1.add(f2));
+                    break;
                 case "-":
                     System.out.println(f1 + " - " + f2 + " is " + f1.subtract(f2));
+                    break;
                 case "*":
                     System.out.println(f1 + " * " + f2 + " is " + f1.multiply(f2));
+                    break;
                 case "/":
                     System.out.println(f1 + " / " + f2 + " is " + f1.divide(f2));
+                    break;
                 case "=":
                     System.out.println(f1 + " is the same as " + f2 + ": " + f1.equals(f2));
+                    break;
             }
+            System.out.println();
         }
     }
 
@@ -88,7 +94,7 @@ public class FractionCalculator
         if (divide > 0)
         {
             num = input.substring(0, divide);
-            den = input.substring(divide);
+            den = input.substring(divide + 1);
         }
         else
         {
@@ -139,7 +145,7 @@ public class FractionCalculator
         if (divide > 0)
         {
             num = Integer.parseInt(f.substring(0, divide));
-            den = Integer.parseInt(f.substring(divide));
+            den = Integer.parseInt(f.substring(divide + 1));
         }
         else
         {

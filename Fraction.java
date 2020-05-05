@@ -79,7 +79,7 @@ public class Fraction
         int newNum = (this.num * other.getDenominator()) + (other.getNumerator() * this.den);
         int newDen = this.den * other.getDenominator();
         Fraction total = new Fraction(newNum, newDen);
-        toLowestTerms();
+        total.toLowestTerms();
         return total;
     }
     // subtraction
@@ -88,7 +88,7 @@ public class Fraction
         int newNum = (this.num * other.getDenominator()) - (other.getNumerator() * this.den);
         int newDen = this.den * other.getDenominator();
         Fraction total = new Fraction(newNum, newDen);
-        toLowestTerms();
+        total.toLowestTerms();
         return total;
     }
     // multiplication
@@ -97,7 +97,7 @@ public class Fraction
         int newNum = this.num * other.getNumerator();
         int newDen = this.den * other.getDenominator();
         Fraction product = new Fraction(newNum, newDen);
-        toLowestTerms();
+        product.toLowestTerms();
         return product;
     }
     // divison
@@ -110,7 +110,7 @@ public class Fraction
         int newNum = this.num * other.getDenominator();
         int newDen = this.den * other.getNumerator();
         Fraction quotient = new Fraction(newNum, newDen);
-        toLowestTerms();
+        quotient.toLowestTerms();
         return quotient;
     }
     // check if the two fractions are equal
@@ -137,8 +137,11 @@ public class Fraction
         // find gcd
         int gcd = gcd(this.num, this.den);
         // divide numerator and denominator by gcd
-        this.num = this.num / gcd;
-        this.den = this.den / gcd;
+        if (gcd != 0)
+        {
+            this.num = this.num / gcd;
+            this.den = this.den / gcd;
+        }
     }
     // greatest common denominator
     public static int gcd(int a, int b)
