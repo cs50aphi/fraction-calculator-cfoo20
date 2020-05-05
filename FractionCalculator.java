@@ -48,4 +48,50 @@ public class FractionCalculator
         }
         return "error";
     }
+
+    private static boolean validFraction(String input)
+    {
+        // numerator and denominator
+        String num;
+        String den;
+        int negative = input.indexOf("-");
+        if (negative > 0)
+        {
+            return false;
+        }
+        if (negative == 0)
+        {
+            input = input.substring(1);
+        }
+        // if contains "/", separate numerator and denominator
+        int divide = input.indexOf("/");
+        if (divide > 0)
+        {
+            num = input.substring(0, divide);
+            den = input.substring(divide);
+        }
+        else
+        {
+            num = input;
+            den = "1";
+        }
+        if (!isNumber(num) || !isNumber(den) || den.equals("0"))
+        {
+            return false;
+        }
+        return true;
+    }
+
+    private static boolean isNumber(String input)
+    {
+        try
+        {
+            int i = Integer.parseInt(input);
+        }
+        catch (NumberFormatException e)
+        {
+            return false;
+        }
+        return true;
+    }
 }
