@@ -79,6 +79,7 @@ public class Fraction
         int newNum = (this.num * other.getDenominator()) + (other.getNumerator() * this.den);
         int newDen = this.den * other.getDenominator();
         Fraction total = new Fraction(newNum, newDen);
+        toLowestTerms();
         return total;
     }
     // subtraction
@@ -87,6 +88,7 @@ public class Fraction
         int newNum = (this.num * other.getDenominator()) - (other.getNumerator() * this.den);
         int newDen = this.den * other.getDenominator();
         Fraction total = new Fraction(newNum, newDen);
+        toLowestTerms();
         return total;
     }
     // multiplication
@@ -95,6 +97,7 @@ public class Fraction
         int newNum = this.num * other.getNumerator();
         int newDen = this.den * other.getDenominator();
         Fraction product = new Fraction(newNum, newDen);
+        toLowestTerms();
         return product;
     }
     // divison
@@ -107,6 +110,7 @@ public class Fraction
         int newNum = this.num * other.getDenominator();
         int newDen = this.den * other.getNumerator();
         Fraction quotient = new Fraction(newNum, newDen);
+        toLowestTerms();
         return quotient;
     }
     // check if the two fractions are equal

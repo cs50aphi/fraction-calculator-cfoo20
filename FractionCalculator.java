@@ -11,44 +11,31 @@ public class FractionCalculator
         System.out.println("It will add, subtract, multiply, and divide fractions until you type Q to quit.\nPlease enter your fractions in the form a/b where a and b are both integers.");
         System.out.println("-----------------------------");
         boolean quit = false;
-        Fraction f1 = new getFraction(kb);
+        Fraction f1;
         Fraction f2;
         while (!quit)
         {
             String operation = getOperation(kb);
             if (operation.equals("Q"))
             {
+                System.out.println("Goodbye!");
                 quit = true;
                 break;
             }
+            f1 = getFraction(kb);
+            f2 = getFraction(kb);
             switch (operation)
             {
                 case "+":
-                    f1 = new getFraction(kb);
-                    f2 = new getFraction(kb);
                     System.out.println(f1 + " + " + f2 + " is " + f1.add(f2));
                 case "-":
-                    f1 = new getFraction(kb);
-                    f2 = new getFraction(kb);
                     System.out.println(f1 + " - " + f2 + " is " + f1.subtract(f2));
                 case "*":
-                    f1 = new getFraction(kb);
-                    f2 = new getFraction(kb);
                     System.out.println(f1 + " * " + f2 + " is " + f1.multiply(f2));
                 case "/":
-                    f1 = new getFraction(kb);
-                    f2 = new getFraction(kb);
                     System.out.println(f1 + " / " + f2 + " is " + f1.divide(f2));
                 case "=":
-                    f1 = new getFraction(kb);
-                    f2 = new getFraction(kb);
                     System.out.println(f1 + " is the same as " + f2 + ": " + f1.equals(f2));
-                case "q":
-                case "Q":
-                    // say goodbye
-                    System.out.println("Goodbye!");
-                    quit = true;
-                    break;
             }
         }
     }
@@ -65,11 +52,12 @@ public class FractionCalculator
             operation = kb.next();
             switch (operation)
             {
-                case "+": return "+";
-                case "-": return "-";
-                case "*": return "*";
-                case "/": return "/";
-                case "=": return "=";
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                case "=":
+                    return operation;
                 case "q":
                 case "Q":
                     return "Q";
@@ -127,12 +115,12 @@ public class FractionCalculator
         return true;
     }
 
-    public Fraction getFraction(Scanner kb)
+    private static Fraction getFraction(Scanner kb)
     {
         // ask for fraction
         System.out.print("Please enter a fraction (a/b) or integer (a): ");
         boolean valid = false;
-        String f;
+        String f = "";
         while (!valid)
         {
             f = kb.next();
@@ -145,5 +133,20 @@ public class FractionCalculator
                 System.out.print("Invalid fraction. Please enter (a/b) or (a) where a and b are integers and b is not zero: ");
             }
         }
+        int divide = f.indexOf("/");
+        int num;
+        int den;
+        if (divide > 0)
+        {
+            num = Integer.parseInt(f.substring(0, divide));
+            den = Integer.parseInt(f.substring(divide));
+        }
+        else
+        {
+            num = Integer.parseInt(f);
+            den = 1;
+        }
+        Fraction frac = new Fraction(num, den);
+        return frac;
     }
 }
